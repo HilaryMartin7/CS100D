@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Whitworth Calculator</title>
+
+<link rel="shortcut icon" href="https://www.whitworth.edu/favicon/favicon.ico">
+<link rel='stylesheet' href='calc.css'>
+
+<script lang="javascript">
+    var leftnum = 0
+    function number_click(btn) {
+        //Get the value in the button text
+        var num = btn.innerHTML
+        var op = '+'
+    
+        //Now get what's currently in the display
+        var disp = document.getElementById('display')
+        // If there's a 0 there, or some non-number, clear the display
+        if (parseInt(disp.innerHTML) == 0 || isNaN(parseInt(disp.innerHTML)))
+            disp.innerHTML = ''
+        //Now, append the button text (a number) to whatever's in the display
+        disp.innerHTML = disp.innerHTML + num
+    }
+
+    function ce_click() {
+        //clear the contents of the display
+        var disp = document.getElementById('display')
+        disp.innerHTML = '0'
+        
+    }
+
+    function op_click(btn) {
+        var disp = document.getElementById('display')
+        leftnum = parseFloat(disp.innerHTML)
+        op = btn.innerHTML
+        disp.innerHTML = '0'
+
+     }
+
+     function sqrt_click(btn) {
+        var disp = document.getElementById('display')
+        leftnum = parseFloat(disp.innerHTML)
+        let res = Math.sqrt(leftnum)
+        disp.innerHTML = res.toString()
+
+     }
+
+     function pi_click(btn) {
+        var disp = document.getElementById('display')
+        let res = Math.PI
+        disp.innerHTML = res.toString()
+
+     }
+
+     function factorial_click(btn) {
+         //clear the contents of the display
+      
+
+        var disp = document.getElementById('display')
+        leftnum = parseInt(disp.innerHTML)
+        
+        
+        let fac = leftnum;
+        if (leftnum === 0 || leftnum === 1) 
+            return 1; 
+        while (leftnum > 1) { 
+            leftnum--;
+            fac *= leftnum;
+    }
+              
+        disp.innerHTML = fac.toString()
+
+     }
+
+    function eq_click() {
+        if (op != '') {
+        var disp = document.getElementById('display')
+        var rightnum = parseInt(disp.innerHTML)
+        var res = 0
+        //perform the correct operation 
+        if (op == '+')
+            res = leftnum + rightnum
+        else if (op == '-')
+            res = leftnum - rightnum
+        else if (op == '*')
+            res = leftnum * rightnum
+        else if (op == '/')
+            res = leftnum / rightnum
+        else if (op == '%')
+            res = leftnum % rightnum
+
+        //update the display
+        disp.innerHTML = res.toString()
+
+        //clear operator
+        op = ''
+        
+        }
+       
+
+
+     }
+</script>
+
+</head>
+
+<body>
+	<div class="main">
+		<img style="float:left;margin-left:20px;margin-top:22px;margin-bottom:60px;height:35px" src="https://d2o2figo6ddd0g.cloudfront.net/6/w/31cxsxy4no5n2j/Flagonly.jpg" alt="Whitworth University"/>
+		<img style="float:right;margin-right:20px;margin-top:22px;margin-bottom:60px;height:35px" src="https://d2o2figo6ddd0g.cloudfront.net/6/w/31cxsxy4no5n2j/Flagonly.jpg" alt="Whitworth University"/>
+		<div style="clear:both"></div>
+		<h1 style="text-align:center">π-rates Calculator</h1>
+		<table style="border:0;margin-left:auto;margin-right:auto">
+			<tr style="background-color:#c20202;text-align:right">
+				<td colspan="5"><span class="display" id="display">0</span></td>
+			</tr>
+			<tr>
+				<td><button class="number"onclick="number_click(this)">7</button></td>
+				<td><button class="number"onclick="number_click(this)">8</button></td>
+				<td><button class="number"onclick="number_click(this)">9</button></td>
+				<td><button class="op" onclick = "op_click(this)">/</button></td>
+				<td><button class="op" onclick = "factorial_click()">!</button></td>
+			</tr>
+			<tr>
+				<td><button class="number"onclick="number_click(this)">4</button></td>
+				<td><button class="number"onclick="number_click(this)">5</button></td>
+				<td><button class="number"onclick="number_click(this)">6</button></td>
+				<td><button class="op"onclick = "op_click(this)">*</button></td>
+				<td><button class="op"onclick = "op_click(this)">%</button></td>
+			</tr>
+			<tr>
+				<td><button class="number"onclick="number_click(this)">1</button></td>
+				<td><button class="number"onclick="number_click(this)">2</button></td>
+				<td><button class="number"onclick="number_click(this)">3</button></td>
+				<td><button class="op"onclick = "op_click(this)">-</button></td>
+				<td><button class="op"onclick = "sqrt_click(this)">&#8730</button></td>
+			</tr>
+			<tr>
+				<td><button class="number" onclick="number_click(this)">0</button></td>
+				<td><button class="op" onclick = "ce_click ()">CE</button></td>
+				<td><button class="op"onclick = "eq_click ()">=</button></td>
+				<td><button class="op"onclick = "op_click(this)">+</button></td>
+				<td><button class="op"onclick = "pi_click (this)">&#960</button></td> 
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

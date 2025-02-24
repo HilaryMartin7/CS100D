@@ -2,7 +2,20 @@
 <head style = "color:blue">
     <link rel='stylesheet' href='style.css'>
     <title>Invest Now in SGMS! </title>
-    
+    <script lang="javascript">
+        function showname() {
+            // get access the textbox with id name 
+            var n = document.getElementById('name')
+            // get access the textbox with id name 
+            var n = document.getElementById('email')
+            // And get access to the label we're writing to
+            var m = document.getElementById('message')
+            if (n.value.length > 0) {
+                //If there's something in the textbox, update the label
+                m.innerHTML='Welcome ' + n.value
+            }
+        }
+    </script>
 </head>
 <body style = "color:blue">
     <h1>Softball Game Management System</h1>
@@ -21,7 +34,14 @@
     </h3>
 
     <div>
-    <img src='images/women_sports.jpg' alt="Forest" style="center">
+      <img src='images/women_sports.jpg' alt="Softball" class="center">
+
+    </div>
+
+    <div>
+        <p>What is your name? <input id='name' type='text'></p>
+        <p>What is your email address? <input id='email' type='text'></p>
+        <p id='message'></p>
     </div>
       
     <a class="next" href=file:///C:/Users/htmartin/CS100D/CS100D/aboutme.html >Meet The Amazing Team &raquo;</a>

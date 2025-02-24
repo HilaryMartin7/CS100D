@@ -1,8 +1,28 @@
 <html>
-<head>
-    <title>My First Page</title>
-</head>
-<body>
-    <img src='images/softball.jpg' alt="Softball" class="center">
-</body>
+    <head>
+        <title>JavaScript Demo</title>
+        <script lang="javascript">
+            function showname() {
+                // get access the textbox with id name 
+                var f = document.getElementById('fname')
+                var l = document.getElementById('lname')
+                // And get access to the label we're writing to
+                var m = document.getElementById('message')
+                if (f.value.length > 0 && l.value.length > 0)  {
+                    //If there's something in the textbox, update the label
+                    m.innerHTML='Welcome to CS100D ' + f.value + " " + l.value
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>What is your first name? <input id='fname' type='text'></p>
+            <p>What is your last name? <input id='lname' type='text'></p>
+            <p id='message'></p>
+        </div>
+        <div>
+            <button onclick="showname()">Submit</button>
+        </div>
+    </body>
 </html>
