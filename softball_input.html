@@ -1,0 +1,71 @@
+<html>
+
+<head style = "color:blue">
+    <link rel='stylesheet' href='style.css'>
+    <title>Team Roster</title>
+    <script>
+        var player_list = []
+        
+        function handleEvent(btn){
+            var player_name = document.getElementById('name').value
+            var number = document.getElementById('number').value
+            var position = document.getElementById('position').value
+
+            var player = {
+                'name': player_name,
+                'number': number,
+                'position': position
+                
+            }
+
+            player_list.push(player)
+            console.log (player_list)
+
+            var list_div = document.getElementById ('roster')
+            var html_list = '<ul>'
+            for (var i=0; i<=player_list.length-1; i++) {
+                html_list += `<li>${player_list[i].name} # ${player_list[i].number} playing ${player_list[i].position}</li>`
+            }
+            html_list += '</ul>';
+            list_div.innerHTML = html_list;
+
+
+
+        }
+    </script>
+    
+</head>
+   
+<body>
+    <h1 class='h1' >Enter Your Team Roster </h1><br />
+
+<div class="third"> 
+    <label for="name">Player Name:</label>
+    <input type="text" id="name" name="name" placeholder = 'name here'><br><br>
+
+</div>
+
+<div class="third"> 
+    <label for="number">Number:</label>
+  <input type= "text" id="number" name="number" placeholder = 'jersey number'><br><br>
+
+</div>
+
+<div class="third"> 
+    <label for="position">Position:</label>
+  <input type="text" id="position" name="position" placeholder = 'position'><br><br> 
+
+</div>
+
+<br><br> <br><br> <br><br> 
+
+  <!-- <button class = "submit" type="submit" value="Submit"> -->
+
+  <button class="submit" onclick = "handleEvent(this)">Add Player</button>
+
+  <div id="roster"></div>
+
+<p font-size:  24px; font-family: Arial, Helvetica, sans-serif;>Click the "Submit" button and the roster will be set for this game.</p>
+
+</body>
+</html>

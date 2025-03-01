@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Input Data</title>
+</head>
+<body>
+
+  <label for="myInput">Enter Text:</label>
+  <input type="text" id="myInput" name="myInput">
+  <button onclick="getData()">Get Data</button>
+
+  <p id="output"></p>
+
+  <script>
+  function getData() {
+    const inputField = document.getElementById("myInput");
+    const outputElement = document.getElementById("output");
+    const inputValue = inputField.value;
+
+    outputElement.textContent = "You entered: " + inputValue;
+  }
+  </script>
+
+</body>
+</html>
