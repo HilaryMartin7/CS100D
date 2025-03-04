@@ -3,6 +3,7 @@
 <head style = "color:blue">
     <link rel='stylesheet' href='style.css'>
     <title>Team Roster</title>
+    <img src='images/softball.jpg' alt="Softball" class="center">
     <script>
         var player_list = []
         
@@ -24,7 +25,7 @@
             var list_div = document.getElementById ('roster')
             var html_list = '<ul>'
             for (var i=0; i<=player_list.length-1; i++) {
-                html_list += `<li>${player_list[i].name} # ${player_list[i].number} playing ${player_list[i].position}</li>`
+                html_list += `<li> Batter # ${i +1} ${player_list[i].name} # ${player_list[i].number}  ${player_list[i].position}</li>`
             }
             html_list += '</ul>';
             list_div.innerHTML = html_list;
