@@ -10,7 +10,7 @@ export default function Index() {
   const [userCount, setUserCount] = useState(0)
   const [totalCount, setTotalCount] = useState(0)
 
-  const urlbase = 'http://localhost:5000/';
+  const urlbase = 'https://tracker-service.e9g15cf6m7ada.us-west-2.cs.amazonlightsail.com/';
 
   const handleResetDB = () => {
     const url = urlbase + '/resetdb'

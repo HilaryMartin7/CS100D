@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from dotenv import load_dotenv # new
 import os
 import pymysql
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
@@ -9,13 +12,7 @@ CORS(app)
 # Test API
 @app.route('/')
 def index():
-    return 'This is a server app.'
-
-@app.route('/test')
-def index():
-    return 'This is a test.'
-
-#new route to reset database
+    return 'This is a another server app.'
 
 
 @app.route('/tracker/resetdb')
@@ -92,4 +89,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { styles } from '@/app/styles';
 import Button from '@/components/button';
 
+
 export default function Calculator() {
 
     const [display, setDisplay] = useState(0);
